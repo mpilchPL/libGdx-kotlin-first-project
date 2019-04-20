@@ -5,14 +5,16 @@ import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import com.firstgdxproject.sampler.utils.GdxArray
+import com.firstgdxproject.sampler.utils.clearScreen
 import com.firstgdxproject.sampler.utils.logger
+import com.firstgdxproject.sampler.utils.toInternalFile
+
 //import com.badlogic.gdx.utils.Array as GdxArray
 
 class InputListenerSample : ApplicationAdapter(), InputProcessor {
@@ -37,7 +39,7 @@ class InputListenerSample : ApplicationAdapter(), InputProcessor {
         camera = OrthographicCamera()
         viewport = FitViewport(1366f,768f, camera)
         batch = SpriteBatch()
-        font = BitmapFont(com.badlogic.gdx.Gdx.files.internal("fonts/oswald-32.fnt"))
+        font = BitmapFont("fonts/oswald-32.fnt".toInternalFile())
 
     }
 
@@ -46,8 +48,7 @@ class InputListenerSample : ApplicationAdapter(), InputProcessor {
     }
 
     override fun render() {
-        Gdx.gl.glClearColor(0f,0f,0f,1f)
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        clearScreen()
 
         batch.projectionMatrix = camera.combined
 

@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.firstgdxproject.sampler.utils.clearScreen
 
 class FirstProjectGame : ApplicationAdapter() {
 
@@ -16,8 +17,7 @@ class FirstProjectGame : ApplicationAdapter() {
         img = Texture("badlogic.jpg")
     }
     override fun render() {
-        Gdx.gl.glClearColor(1f,0f,0f,1f)
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        clearScreen()
 
         batch.begin()
         batch.draw(img, 0f,0f)
