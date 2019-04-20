@@ -1,11 +1,11 @@
-package com.firstgdxproject.sampler
+package com.firstgdxproject.sampler.samples
 
 import com.badlogic.gdx.Application
-import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
+import com.firstgdxproject.sampler.common.SampleBase
 import com.firstgdxproject.sampler.utils.logger
 
-class ModuleInfoSample : ApplicationAdapter() {
+class ModuleInfoSample : SampleBase() {
 
     companion object {
         @JvmStatic

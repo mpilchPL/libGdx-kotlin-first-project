@@ -1,13 +1,11 @@
-package com.firstgdxproject.sampler
+package com.firstgdxproject.sampler.samples
 
-import com.badlogic.gdx.ApplicationAdapter
-import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.firstgdxproject.sampler.common.SampleBase
 import com.firstgdxproject.sampler.utils.clearScreen
 
-class FirstProjectGame : ApplicationAdapter() {
+class GdxGeneratedSample : SampleBase() {
 
     lateinit var batch: SpriteBatch
     lateinit var img: Texture

@@ -1,24 +1,25 @@
-package com.firstgdxproject.sampler
+package com.firstgdxproject.sampler.samples
 
 import com.badlogic.gdx.Application
-import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.utils.reflect.ClassReflection
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.firstgdxproject.sampler.common.SampleBase
 import com.firstgdxproject.sampler.utils.clearScreen
 import com.firstgdxproject.sampler.utils.logger
 import com.firstgdxproject.sampler.utils.toInternalFile
 
-class InputPollingSample : ApplicationAdapter() {
+class ReflectionSample : SampleBase() {
 
     companion object {
         @JvmStatic
-        private val log = logger<InputPollingSample>()
+        private val log = logger<ReflectionSample>()
     }
     lateinit var camera: OrthographicCamera
     lateinit var viewport: Viewport
@@ -35,6 +36,7 @@ class InputPollingSample : ApplicationAdapter() {
         batch = SpriteBatch()
         font = BitmapFont("fonts/oswald-32.fnt".toInternalFile())
 
+        debugReflection<ReflectionSample>()
     }
 
     override fun resize(width: Int, height: Int) {
@@ -68,33 +70,24 @@ class InputPollingSample : ApplicationAdapter() {
         val rightPressedString = if (rightPressed) "Right pressed" else "Right not pressed"
 
         font.draw(batch, "MouseX = $mouseX, MouseY = $mouseY", 20f, 768f - 20f)
-        font.draw(batch, leftPressedString, 20f,768f - 60f)
-        font.draw(batch, rightPressedString, 20f,768f - 100f)
-
-        //keys
-        var keyColors = hashMapOf("A" to Color.WHITE, "W" to Color.WHITE, "S" to Color.WHITE, "D" to Color.WHITE)
+        font.draw(batch, leftPressedString, 20f, 768f - 60f)
+        font.draw(batch, rightPressedString, 20f, 768f - 100f)
 
 
-        val aPressed = Gdx.input.isKeyPressed(Input.Keys.A)
-        val wPressed = Gdx.input.isKeyPressed(Input.Keys.W)
-        val sPressed = Gdx.input.isKeyPressed(Input.Keys.S)
-        val dPressed = Gdx.input.isKeyPressed(Input.Keys.D)
-        if (aPressed) keyColors["A"] = Color.RED
-        if (wPressed) keyColors["W"] = Color.RED
-        if (dPressed) keyColors["D"] = Color.RED
-        if (sPressed) keyColors["S"] = Color.RED
-        var i = 1
-        for (keys in keyColors.keys) {
-            font.setColor(keyColors[keys])
-            font.draw(batch, keys, 460f + 40*i,768f - 140f)
-            i++
+    }
+
+    private inline fun <reified T: Any> debugReflection(){
+        val fields = ClassReflection.getDeclaredFields(T::class.java)
+        val methods = ClassReflection.getDeclaredMethods(T::class.java)
+        log.debug("reflecting class: ${T::class.java.simpleName}")
+        log.debug("field count: ${fields.size}")
+
+        for (field in fields){
+            log.debug("name: ${field.name}, type: ${field.type}")
         }
 
-
-
-
-
-
-
+        methods.forEach {
+            log.debug("name: ${it.name}, parameterCount: ${it.parameterTypes.size}")
+        }
     }
 }

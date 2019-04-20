@@ -1,15 +1,14 @@
-package com.firstgdxproject.sampler
+package com.firstgdxproject.sampler.samples
 
 import com.badlogic.gdx.Application
-import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
+import com.firstgdxproject.sampler.common.SampleBase
 import com.firstgdxproject.sampler.utils.GdxArray
 import com.firstgdxproject.sampler.utils.clearScreen
 import com.firstgdxproject.sampler.utils.logger
@@ -17,7 +16,7 @@ import com.firstgdxproject.sampler.utils.toInternalFile
 
 //import com.badlogic.gdx.utils.Array as GdxArray
 
-class InputListenerSample : ApplicationAdapter(), InputProcessor {
+class InputListenerSample : SampleBase() {
 
     companion object {
         @JvmStatic

@@ -1,9 +1,13 @@
-package com.firstgdxproject.sampler
+package com.firstgdxproject.sampler.samples
 
-import com.badlogic.gdx.*
+import com.badlogic.gdx.Application
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.InputAdapter
+import com.badlogic.gdx.InputMultiplexer
+import com.firstgdxproject.sampler.common.SampleBase
 import com.firstgdxproject.sampler.utils.logger
 
-class MultiplexerSample : ApplicationAdapter() {
+class MultiplexerSample : SampleBase() {
 
     companion object {
         @JvmStatic
