@@ -11,6 +11,20 @@ background-blue
   orig: 1280, 720
   offset: 0, 0
   index: -1
+button
+  rotate: false
+  xy: 2, 74
+  size: 373, 128
+  orig: 373, 128
+  offset: 0, 0
+  index: -1
+buttonSelected
+  rotate: false
+  xy: 1284, 272
+  size: 373, 128
+  orig: 373, 128
+  offset: 0, 0
+  index: -1
 character
   rotate: false
   xy: 1284, 402
@@ -20,14 +34,14 @@ character
   index: -1
 circle-green
   rotate: false
-  xy: 2, 2
+  xy: 377, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
 circle-red
   rotate: false
-  xy: 204, 2
+  xy: 579, 2
   size: 200, 200
   orig: 200, 200
   offset: 0, 0

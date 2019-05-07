@@ -14,7 +14,12 @@ object SampleInfos {
             SampleInfo(ReflectionSample::class.java),
             SampleInfo(OrthographicCameraSample::class.java),
             SampleInfo(ViewportSample::class.java),
-            SampleInfo(SpriteBatchSample::class.java)
+            SampleInfo(SpriteBatchSample::class.java),
+            SampleInfo(ShapeRendererSample::class.java),
+            SampleInfo(PoolingSample::class.java),
+            sampleInfo<AssetManagerSample>(),
+            sampleInfo<TextureAtlasSample>(),
+            sampleInfo<ImageTextButtonSample>()
 
     )
 
